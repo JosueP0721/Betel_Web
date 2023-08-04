@@ -4,8 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iglesia Bautista Betel</title>
+    <link rel="stylesheet" href="build/css/app.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
-    
+    <header class="header">
+        <nav class="header__nav container">
+            <div class="nav__contenido">
+                <a href="#" class="nav__logo">
+                    <img src="build/img/logo_betel.svg" alt="Logo Iglesia">
+                </a>
+                <div class="nav__toggle" id="nav-toggle">
+                    <svg class="nav__burger" viewBox="0 0 24 24" width="36" height="36"><path d="M3 4H21V6H3V4ZM3 11H21V13H3V11ZM3 18H21V20H3V18Z"></path></svg>
+                    <svg class="nav__close" viewBox="0 0 24 24" width="36" height="36"><path d="M12.0007 10.5865L16.9504 5.63672L18.3646 7.05093L13.4149 12.0007L18.3646 16.9504L16.9504 18.3646L12.0007 13.4149L7.05093 18.3646L5.63672 16.9504L10.5865 12.0007L5.63672 7.05093L7.05093 5.63672L12.0007 10.5865Z"></path></svg>
+                </div>
+            </div>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__lista">
+                    <li>
+                        <a href="#" class="nav__link">¿Eres nuevo?</a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav__link">Doctrina</a>
+                    </li>
+                    <li class="dropdown__item">
+                        <div id="nav-subtoggle-1" class="nav__link">
+                            Ministerios<svg id="nav-toggle"class="dropdown__arrow" viewBox="0 0 24 24" width="24" height="24"><path d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z"></path></svg>
+                        </div>
+                        <ul class="dropdown__menu" id="nav-submenu-1">
+                            <li class="dropdown__subitem"> 
+                                <div class="dropdown__link">
+                                    <a href="#" class="dropdown__link-enlace">Evangelismo y Discipulado</a>
+                                </div>
+                            </li>
+                            <li class="dropdown__subitem"> 
+                                <div class="dropdown__link">
+                                    <a href="#" class="dropdown__link-enlace">Alcance Familiar</a>
+                                </div>
+                            </li>
+                            <li class="dropdown__subitem"> 
+                                <div class="dropdown__link">
+                                    <a href="#" class="dropdown__link-enlace">Adoración</a>
+                                </div>
+                            </li>
+                            <li class="dropdown__subitem"> 
+                                <div class="dropdown__link">
+                                    <a href="#" class="dropdown__link-enlace">Academia Bíblica</a>
+                                </div>
+                            </li>
+                            <li class="dropdown__subitem">
+                                <div class="dropdown__link">
+                                    <a href="#" class="dropdown__link-enlace">Misiones</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown__item">
+                        <div class="nav__link" id="nav-subtoggle-2">
+                            Información<svg class="dropdown__arrow" viewBox="0 0 24 24" width="24" height="24"><path d="M11.9997 13.1714L16.9495 8.22168L18.3637 9.63589L11.9997 15.9999L5.63574 9.63589L7.04996 8.22168L11.9997 13.1714Z"></path></svg>
+                        </div>
+                        <ul class="dropdown__menu" id="nav-submenu-2">
+                            <li class="dropdown__subitem"> 
+                                <div class="dropdown__link">
+                                    <a href="#" class="dropdown__link-enlace">Nosotros</a>
+                                </div>
+                            </li>
+
+                            <li class="dropdown__subitem"> 
+                                <div class="dropdown__link">
+                                    <a href="#" class="dropdown__link-enlace">Misión</a>
+                                </div>
+                            </li>
+                            
+                            <li class="dropdown__subitem"> 
+                                <div class="dropdown__link">
+                                    <a href="#" class="dropdown__link-enlace">Equipo</a>
+                                </div>
+                            </li>
+
+                            <li class="dropdown__subitem"> 
+                                <div class="dropdown__link">
+                                    <a href="#" class="dropdown__link-enlace">Ayuda</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="nav__link">Contáctanos</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <script src="build/js/header.js"></script>
 </body>
 </html>
