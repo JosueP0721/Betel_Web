@@ -1,0 +1,91 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.bloque__4 {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url(../img/imagen_2.webp);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.transmisiones {
+    padding: 20rem 0;
+    height: auto;
+
+    &__contenido {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__titulo {
+        margin: 0;
+    }
+
+    &__texto {
+        width: 70%;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 3rem;
+        color: v.$blanco;
+
+        @include m.desktop {
+            font-size: 4rem;
+        }
+    }
+
+    &__botones {
+        display: flex;
+        flex-direction: column;
+        margin: 3rem 0;
+        gap: 2rem;
+
+        @include m.tablet {
+            flex-direction: row
+        }
+    }
+
+    &__boton {
+        @include m.boton(transparent, v.$blanco);
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        width: 25rem;
+
+        @include m.tablet {
+            width: 17.5rem;
+        }
+
+        path {
+            fill: v.$blanco;
+        }
+
+        span {
+            color: v.$blanco;
+        }
+    }
+
+}
+
+.facebook {
+    &:hover {
+        background-color: v.$azul-fb;
+        border-color: v.$azul-fb;
+        color: v.$blanco;
+        cursor: pointer;
+        transition: all 200ms cubic-bezier(0.33, 0, 0.19, 1);
+    }
+}
+
+.youtube {
+    &:hover {
+        background-color: v.$rojo-yt;
+        border-color: v.$rojo-yt;
+        color: v.$blanco;
+        cursor: pointer;
+        transition: all 200ms cubic-bezier(0.33, 0, 0.19, 1);
+    }
+}
