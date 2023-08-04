@@ -1,0 +1,172 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.dropdown {
+    &__item {
+        cursor: pointer;
+    }
+    &__subitem {
+        z-index: 10;
+    }
+    &__arrow {
+        font-size: 1.25rem;
+        font-weight: initial;
+        transition: transform .4s;
+    }
+    &__link {
+        padding: 1.25rem 1.25rem 1.25rem 3.5rem;
+        color: v.$negro;
+        background-color: v.$gris;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        column-gap: .5rem;
+        font-weight: 500;
+        transition: background-color .3s;
+    }
+    &__link-enlace {
+        color: v.$negro;
+    }
+    &__link:hover {
+        background-color: transparent;
+    }
+    &__menu,
+    &__submenu {
+        max-height: 0;
+        overflow: hidden;
+        list-style: none;
+        transition: max-height .4s ease-out;
+    }
+    &__item:hover &__menu,
+    &__subitem:hover &__submenu {
+        max-height: 1000px;
+        transition: max-height .4s ease-in;
+    }
+    &__item:hover &__arrow {
+        transform: rotate(180deg);
+    }
+    &__add {
+        margin-left: auto;
+        z-index: 20;
+    }
+}
+
+.show-submenu {
+    max-height: 1000px;
+    transition: max-height .4s ease-in;
+}
+
+.show-add .dropdown__arrow,
+.show-add .dropdown__add {
+    transform: rotate(180deg);
+}
+
+.show-subitem {
+    max-height: 1000px;
+    transition: max-height .4s ease-in;
+}
+
+@media screen and (min-width: 1118px) {
+    .header__nav {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .nav {
+        &__toggle {
+            display: none;
+        }
+        &__lista {
+            height: 100%;
+            display: flex;
+            column-gap: 3rem;
+            padding-top: 0;
+            box-shadow: none;
+        }
+        &__link {
+            height: 100%;
+            padding: 0;
+            justify-content: initial;
+            column-gap: .45rem;
+            background-color: transparent;
+            &:hover {
+                background-color: transparent ;
+                color: v.$gris-oscuro;
+            }
+        }
+        &__menu {
+            opacity: 1;
+        }
+    }
+    .dropdown {
+        &__item,
+        &__subitem {
+            position: relative;
+        }
+        &__menu,
+        &__submenu {
+            max-height: initial;
+            overflow: initial;
+            position: absolute;
+            left: 0;
+            top: 6.5rem;
+            border-radius: .8rem;
+            opacity: 0;
+            pointer-events: none;
+            background-color: v.$blanco;
+            transition: opacity .3s, top .3s;
+            -webkit-box-shadow: -6px -6px 5px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: -6px -6px 5px 0px rgba(0,0,0,0.75);
+            box-shadow: -6px -6px 5px 0px rgba(0,0,0,0.75);
+        }
+        &__menu > li:first-child >a:first-child,
+        &__submenu > li:first-child >a:first-child {
+            border-top-right-radius: .8rem;
+            border-top-left-radius: .8rem;
+        }
+        &__menu > li:last-child >a:last-child,
+        &__menu > li:last-child > .dropdown__link,
+        &__submenu > li:last-child >a:last-child {
+            border-bottom-right-radius: .8rem ;
+            border-bottom-left-radius: .8rem;
+        }
+        &__link {
+            background-color: transparent;
+            padding-inline: 1rem;
+            &:hover {
+                background-color: v.$gris;
+            }
+            width: 25rem;
+            z-index: 1;
+            &-enlace {
+                color: v.$negro;
+            }
+        }
+        &__subitem .dropdown__link {
+            padding-inline: 1rem;
+        }
+        &__subitem:first-child .dropdown__link:first-child {
+            border-top-right-radius: .8rem;
+            border-top-left-radius: .8rem;
+        }
+        &__submenu {
+            position: absolute;
+            left: 100%;
+            top: .6rem;
+            background-color: v.$blanco;
+            z-index: 99;
+        }
+        &__item:hover .dropdown__menu {
+            opacity: 1;
+            top: 6rem;
+            pointer-events: initial;
+            transition: top .3s;
+        }
+        &__subitem:hover &__submenu {
+            opacity: 1;
+            top: 0;
+            pointer-events: initial;
+            transition: top .3s;
+        }
+    }
+}
