@@ -1,0 +1,112 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: v.$blanco;
+    box-shadow: 0 2px 16px hsla(220, 32%, 8%, .8);
+    z-index: 10;
+
+    &__nav {
+        height: 8rem;
+        max-width: 140rem;
+    }
+}
+
+.nav {
+    &__menu {
+        opacity: 0;
+        top: 0;
+        transition: opacity .3s, top .3s;
+    }
+    &__contenido {
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid v.$gris;
+    }
+    &__logo {
+        display: inline-flex;
+        align-items: center;
+    }
+    &__toggle {
+        position: relative;
+        width: 3.2rem;
+        height: 3.2rem;
+    }
+    &__burguer,
+    &__close {
+        position: absolute;
+        width: max-content;
+        height: max-content;
+        inset: 0;
+        margin: auto;
+        font-size: 1.25rem;
+        cursor: pointer;
+        transition: opacity .1s, transform .4s;
+    }
+    &__close {
+        opacity: 0;
+    }
+}
+
+@media screen and (max-width: 1118px) {
+    .nav__menu {
+        position: absolute;
+        left: 0;
+        top: 8rem;
+        width: 100%;
+        height: calc(100vh - 8rem);
+        overflow: auto;
+        pointer-events: none;
+        opacity: 0;
+        transition: top .4s, opacity .3s;
+
+        &::-webkit-scrollbar {
+            width: 0;
+        }
+    }
+}
+
+.nav {
+    &__lista {
+        background-color: v.$blanco;
+        padding-top: 1rem;
+        list-style: none;
+        box-shadow: 0 2px 16px hsla(220, 32%, 8%, .8);
+    }
+    &__link {
+        color: v.$negro;
+        background-color: v.$blanco;
+        font-weight: 500;
+        padding: 1.25rem 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background-color .3;
+        &:hover {
+            background-color: v.$gris;
+        }
+    }
+}
+
+.show-menu {
+    opacity: 1;
+    top: 8rem;
+    pointer-events: initial;
+    transition: opacity .3s, top .3s;
+}
+
+.show-icon .nav__burger {
+    opacity: 0;
+    transform: rotate(90deg);
+}
+
+.show-icon .nav__close {
+    opacity: 1;
+    transform: rotate(90deg);
+}
